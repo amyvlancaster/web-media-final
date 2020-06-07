@@ -1,0 +1,162 @@
+/*General declarations*/
+body {
+  padding-top: 50px;
+}
+
+h2 {
+	padding-bottom: 50px;
+}
+
+.starter-template {
+  margin: 100px;
+  padding: 40px 15px;
+  text-align: center;
+}
+
+/*Button design*/
+.btn {
+	height: 55px;
+	background-color: gray;
+	color: white;
+	border: 0px;
+	font-family: helvetica;
+	font-size: 16px;
+	padding: 15px 20px;
+	margin: 10px 10px;
+}
+
+/*Canvas design for week 5*/
+canvas {
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+/*SVG Declarations for week 4*/
+.svgbox {
+padding: 20px;
+  margin: 10px auto;
+  margin-bottom: 50px;
+  max-width: 350px;
+  height: 350px;
+  box-shadow: 0 0 4px gray;
+  width: 100%;
+  cursor: pointer;
+  overflow:visible;
+  text-align: center;
+}
+
+.buttonbox {
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 450px;
+  height: 310px;
+  box-shadow: 0 0 4px gray;
+  width: 100%;
+  cursor: pointer;
+  overflow: auto;
+  text-align: left;
+  word-wrap:break-word;
+}
+
+#leftSquare:hover, #rightSquare:hover, #AVL:hover{
+	fill: pink;
+}
+
+
+/*Image for week 3 animation*/
+#imgCat {
+	display: none;
+	animation-name: fadeIn;
+	animation-duration: 5s;
+	animation-iteration-count: 1;
+	/*animation-delay: 2s; */
+	/*animation-direction: up from bottom; */
+	/*animation-timing-function: ease-in-out; */
+}
+
+/*Images for week 2*/
+#img1, #img2, #img3, #img4 {
+	max-width: 100%;
+	height: auto;
+	padding-bottom: 5%;
+}
+
+/*Alerts for week 2*/
+#alert, #alert-info {
+	padding: 50px;
+}
+
+/*Responsive Design*/
+
+/* FOR SMALL DEVICES */
+[class*="col-"] {
+	width: 100%;
+}
+
+@media only screen and (max-width: 600px){
+ #desktop, #tablet {
+	display: none;
+	}	
+} 
+
+/* FOR PORTRAIT TABLETS AND LARGE PHONES */
+@media only screen and (min-width: 601px){
+	#desktop, #tablet {
+		display: none;
+	}
+
+	[class*="col-"]{
+		width: 50%;
+}
+
+/* FOR LANDSCAPE TABLETS */
+@media only screen and (min-width: 768px){
+	#desktop, #mobile {
+		display: none;
+	}
+	
+	#tablet {
+		display: block;
+	}
+	.col-sm-6 {width:50%;}
+	.col-sm-push-6 {width:50%;}
+	.col-sm-pull-6 {width:50%;}
+	.col-sm-12 {width:100%;}
+ }
+
+/* FOR LAPTOP/DESKTOP */
+@media only screen and (min-width: 992px){
+	#mobile, {
+		display: none;
+	}
+
+	#tablet {
+		display: none;
+	} 
+
+	#desktop {
+		display: block;
+	}
+
+.col-md-3 {width:25%;}
+.col-md-6 {width:50%;}
+.col-md-12 {width:100%;}
+} 
+
+/* FOR LARGE DEVICES */
+@media only screen and (min-width: 1200px){
+	#tablet {
+		display: none;
+	}
+
+	#mobile {
+		display: none;
+	}
+	#desktop {
+		display: block;
+	}
+.col-lg-3 {width: 25%;}
+.col-lg-6 {width:50%;}
+.col-lg-12 {width:100%;}
+
+} 
