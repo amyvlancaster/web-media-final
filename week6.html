@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WEBD350 Fall Semester 2019">
+    <meta name="author" content="Amy Lancaster">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/starter-template/">
+
+    <title>Amy Lancaster's Bootstrap Starter Template</title>
+
+    <!-- CDN Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/assignments.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">WEBD 350</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="week2.html">Week 2</a></li>
+            <li><a href="week3.html">Week 3</a></li>
+            <li><a href="week4.html">Week 4</a></li>
+            <li><a href="week5.html">Week 5</a></li>
+            <li class="active"><a href="week6.html">Week 6</a></li>
+            <li><a href="final.html">Final</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<div class = "jumbotron text-center">
+  <h1><strong>Week 6</strong></h1>
+  <p>Audio and Video</p>
+</div>
+
+<!-- Video -->
+<div class="container-fluid">
+  <center>
+  <video id="video" width="640" height="360">
+    <source src="videos/dog2.mp4" type="video/mp4">Player not supported</video><br>
+      <!-- Controls -->
+      <button class="btn" id="play">Play</button>
+      <button class="btn" id="rewind">Rewind</button>
+      <button class="btn" id="forward">Fast Forward</button>
+      <button class="btn" id="restart">Restart</button><br>
+      <h3>"Jazzy Frenchy" by <a href="http://bensound.com" target="_blank">BenSound</a></h3>
+      <audio id = "music"><source src="audio/music.mp3"></audio>
+        <button class="btn" id="audioplay">Play</button>
+    </center>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- CDN Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+    $(function() {
+      $(".nav a").click(function()  {
+        $("nav").find(".active").removeClass("active");
+        $(this).parent().addClass("active");
+      });
+    });
+    </script>
+
+    <!-- Script for video controls -->
+    <script>
+      (function(){
+        var video = document.getElementById('video'),
+            playButton = document.getElementById('play'),
+            rewindButton = document.getElementById('rewind'),
+            forwardButton = document.getElementById('forward'),
+            restartButton = document.getElementById('restart'),
+            audioButton = document.getElementById('audioplay'),
+            songAudio = document.getElementById('music'),
+            intervalRewind;
+
+            //Fast forward
+            forwardButton.onclick = function(){
+              clearInterval(intervalRewind);
+              video.playbackRate = 3.0;
+              video.play();
+            };
+
+            //Rewind
+            rewindButton.onclick = function(){
+              clearInterval(intervalRewind);
+              intervalRewind = setInterval(function(){
+                video.playbackRate = 1.0;
+                if (video.currentTime == 0){
+                  clearInterval(intervalRewind);
+                  video.pause();
+                }
+                else {
+                  video.currentTime += -.1;
+                }
+              }, 30);
+            };
+
+            //Play and play UI
+            playButton.onclick = function(){
+              clearInterval(intervalRewind);
+              video.playbackRate = 1.0;
+              video.paused ? video.play() : video.pause();
+            };
+
+            video.onplay = video.onpause = function (){
+              playButton.innerHTML = video.paused ? "Play" : "Pause";
+            };
+
+            //Restart
+            restartButton.onclick = function(){
+              clearInterval(intervalRewind);
+              video.currentTime = 0;
+              video.play();
+            };
+
+            //Play audio and audio UI
+            audioButton.onclick = function(){
+              songAudio.paused ? songAudio.play() : songAudio.pause();
+            };
+
+            songAudio.onplay = songAudio.onpause = function(){
+              audioButton.innerHTML = songAudio.paused ? "Play" : "Pause";
+            };
+      }());
+    </script>
+  </body>
+</html>

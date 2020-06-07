@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WEBD350 Fall Semester 2019">
+    <meta name="author" content="Amy Lancaster">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/starter-template/">
+
+    <title>Amy Lancaster's Bootstrap Starter Template</title>
+
+    <!-- CDN Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/assignments.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+    <!-- Aniamte.CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">WEBD 350</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="week2.html">Week 2</a></li>
+            <li><a href="week3.html">Week 3</a></li>
+            <li class="active"><a href="week4.html">Week 4</a></li>
+            <li><a href="week5.html">Week 5</a></li>
+            <li><a href="week6.html">Week 6</a></li>
+            <li><a href="final.html">Final</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<div class = "jumbotron text-center">
+  <h1><strong>Week 4</strong></h1>
+  <p>SVG and CSS3 Animations</p>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-sm-12 col-md-12 col-lg-12 text-center">
+      <h2><strong>Animate this SVG!</strong></h2></div>
+  </div>
+  <div class="row">
+     <!--SVG Image -->
+    <div class="col col-sm-6 col-sm-push-6 col-md-6 col-lg-6">
+      <div class="svgbox">
+      <center>
+<svg id = "avl" xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #aac6dc;
+      }
+
+      .cls-2 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-3 {
+        font-size: 400px;
+        font-family: Selima, serif;
+      }
+    </style>
+  </defs>
+  <rect id="rightSquare" class="cls-1" x="413" y="379" width="470" height="470"/>
+  <rect id ="leftSquare" class="cls-2" x="153" y="192" width="470" height="470"/>
+  <text id="AVL" class="cls-3" x="193.564" y="644.39">AVL</text>
+</svg>
+</center>
+  </div>
+</div>
+    <!-- Controls -->
+    <div class="col col-sm-6 col-sm-pull-6 col-md-6 col-lg-6 btn-group" role="group">
+      <center>
+      <button type="button" class="btn" id="heartBeat">Heart Beat</button>
+      <button type="button" class="btn" id="bounce">Bounce</button>
+      <button type="button" class="btn" id="fadeOut">Fade Out</button>
+    </center>
+    </div>
+    <div class="col col-sm-6 col-sm-pull-6 col-md-6 col-lg-6">
+      <div class="buttonbox">
+        <ul>
+          <li><strong>Heart Beat:</strong> The SVG is attracted to you - you're making its heart race!</li>
+          <li><strong>Bounce:</strong> The SVG is excited - it wants to jump around!</li>
+          <li><strong>Fade Out:</strong> You've offended the SVG - it needs to step outside for air.</li>
+        </ul>
+        <center>
+        <em>Want to see more? Try pushing its buttons....</em>
+      </center>
+      <p></p>
+        <ul>
+          <li><strong>Left Square:</strong> Clicking the left square will cause it to flip out of frame and back.</li>
+          <li><strong>AVL Text:</strong> Clicking the "AVL" text will cause it to enlargen and shake temporarily.</li>
+          <li><strong>Right Square:</strong> Clicking the right square will cause it to flash.</li> 
+        </ul>
+    </div>
+    </div>
+</div>
+
+
+      
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- CDN Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <script>
+    $(function() {
+      $(".nav a").click(function()  {
+        $("nav").find(".active").removeClass("active");
+        $(this).parent().addClass("active");
+      });
+    });
+  </script>
+
+  <script>
+        (function(){
+        //Declare variables for animation
+        var leftSquare = document.getElementById('leftSquare'),
+            rightSquare = document.getElementById('rightSquare'),
+            avlText = document.getElementById('AVL'),
+            svg = document.getElementById('avl'),
+
+            beatButton = document.getElementById('heartBeat'),
+            bounceButton = document.getElementById('bounce'),
+            outButton = document.getElementById('fadeOut');
+
+        //For Heart Beat Button
+        beatButton.onclick = function(){
+          svg.classList.add('animated', 'heartBeat');
+        };
+      
+        //For Bounce Button
+        bounceButton.onclick = function(){
+          svg.classList.add('animated', 'bounce');
+        };
+
+        //For fade out button
+        outButton.onclick = function(){
+          svg.classList.add('animated', 'fadeOut');
+        };
+
+        //For clearing classes
+        svg.addEventListener('animationend', function(e){
+          svg.classList.remove('heartBeat', 'bounce', 'fadeOut');
+        });
+
+        //For flipping the leftSquare
+        leftSquare.onclick = function(){
+          leftSquare.classList.add('animated', 'flip');
+        };
+
+        leftSquare.addEventListener('animationend', function(e){
+          leftSquare.classList.remove('flip');
+        });
+
+        //For flashing the rightSquare
+        rightSquare.onclick = function(){
+          rightSquare.classList.add('animated', 'flash');
+        };
+
+        rightSquare.addEventListener('animationend', function(e){
+          rightSquare.classList.remove('flash');
+        });
+
+        //For "AVL" text animation
+        avlText.onclick = function(){
+          avlText.classList.add('animated', 'tada');
+        };
+
+        avlText.addEventListener('animationend', function(e){
+          avlText.classList.remove('tada');
+        });
+
+      })();
+  </script>
+  </div>
+  </body>
+</html>
