@@ -1,0 +1,164 @@
+<script>
+    (function(){
+      var canvas = document.getElementById('cateyes'),
+      ctx = canvas.getContext('2d');
+
+      //irises and animation
+      var irises = [
+      {type: 'circle', x: 175, y: 297.5, r: 20, color: "green"},
+      {type: 'circle', x: 332, y: 297.5, r: 20, color: "green"},
+      ];
+
+      draw();
+
+      ctx.canvas.onmouseout = function(){
+        draw();
+      };
+
+      ctx.canvas.onmousemove = function(e){
+        draw(e);
+      };
+
+      function draw(e){
+        if (e){
+          drawShapes(irises, e.offsetX, e.offsetY);
+        }
+        else {
+          drawShapes(irises);
+        }
+      }
+
+      function drawShapes(irises, mouseX, mouseY){
+        var temp = document.createElement("canvas"),
+        tempCtx = temp.getContext("2d");
+
+        temp.width = ctx.canvas.width;
+        temp.height = ctx.canvas.height;
+
+        irises.forEach(function(iris) {
+          tempCtx.fillStyle = iris.color;
+
+        });
+      };
+
+      function drawShapes(irises) {
+        irises.forEach(function(iris) {
+          ctx.fillStyle = iris.color;
+          ctx.beginPath();
+          ctx.arc(iris.x, iris.y, iris.r, 0, 2*Math.PI);
+          ctx.closePath();
+          ctx.fill();
+        });
+      };
+
+      //left ear
+      ctx.beginPath();
+      ctx.moveTo(111, 280); //left point
+      ctx.lineTo(200, 200); //right point
+      ctx.lineTo(150, 75); //top point
+      ctx.closePath();
+      ctx.strokeStyle = "gray";
+      ctx.lineWidth = 10;
+      ctx.fillStyle = "pink";
+      ctx.stroke();
+      ctx.fill();
+
+      //right ear
+      ctx.beginPath();
+      ctx.moveTo(300, 200); //left point
+      ctx.lineTo (389, 280); //right point 
+      ctx.lineTo(350, 75); //top point
+      ctx.closePath();
+      ctx.strokeStyle = "gray";
+      ctx.lineWidth = 10;
+      ctx.fillStyle = "pink";
+      ctx.stroke();
+      ctx.fill();
+
+      //head
+      ctx.beginPath();
+      ctx.arc(250, 350, 150, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      //left eye
+      ctx.beginPath();
+      ctx.moveTo(130, 300);
+      ctx.quadraticCurveTo(180, 230, 215, 300); //upper curve
+      ctx.lineWidth = 5;;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(130, 298);
+      ctx.quadraticCurveTo(175, 365, 215, 298); //lower curve
+      ctx.lineWidth = 5;
+      ctx.stroke();
+
+      //right eye
+      ctx.beginPath();
+      ctx.moveTo (290, 300);
+      ctx.quadraticCurveTo(335, 235, 370, 300); //upper curve
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(290, 298);
+      ctx.quadraticCurveTo(335, 365, 370, 298); //lower curve
+      ctx.stroke();
+
+      //nose
+     ctx.beginPath();
+     ctx.moveTo(250, 400); //bottom point
+     ctx.lineTo(280, 375); //right point
+     ctx.lineTo(220, 375); //left point
+     ctx.closePath();
+     ctx.fillStyle="pink";
+     ctx.fill();
+
+      //mouth
+      ctx.beginPath();
+      ctx.moveTo(200, 400);
+      ctx.bezierCurveTo(150, 475, 300, 475, 250, 400); //left curve
+      ctx.lineWidth=3;
+      ctx.strokeStyle="gray";
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(250, 400);
+      ctx.bezierCurveTo(240, 475, 340, 465, 315, 400); //right curve
+      ctx.lineWidth=3;
+      ctx.strokeStyle="gray";
+      ctx.stroke();
+
+      //right top whisker
+      ctx.beginPath();
+      ctx.moveTo(278, 376);
+      ctx.lineTo(490, 350);
+      ctx.strokeStyle="black";
+      ctx.lineWidth=1;
+      ctx.stroke();
+
+      //right bottom whisker
+      ctx.beginPath();
+      ctx.moveTo(260, 390);
+      ctx.lineTo(490, 410);
+      ctx.strokeStyle="black";
+      ctx.lineWidth=1;
+      ctx.stroke();
+
+      //left top whisker
+      ctx.beginPath();
+      ctx.moveTo(222, 376);
+      ctx.lineTo(10, 350);
+      ctx.strokeStyle="black";
+      ctx.lineWidth=1;
+      ctx.stroke();
+
+      //left bottom whisker 
+      ctx.beginPath();
+      ctx.moveTo(240, 390);
+      ctx.lineTo(10, 410);
+      ctx.strokeStyle="black";
+      ctx.lineWidth=1;
+      ctx.stroke();
+
+    }());
+</script>
